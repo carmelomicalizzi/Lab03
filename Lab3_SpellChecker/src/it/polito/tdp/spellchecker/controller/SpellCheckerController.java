@@ -76,7 +76,7 @@ public class SpellCheckerController {
     	for(i=0; i < elencoDaCorreggere.length; i++)
     		inputTextList.add(elencoDaCorreggere[i].trim().toLowerCase());
     	
-    	List<RichWord> listaCorretta = dizionario.spellCheckText(inputTextList);
+    	List<RichWord> listaCorretta = dizionario.spellCheckTextLinear(inputTextList);
     	String elenco = "";
     	for(RichWord r : listaCorretta)
     		elenco += r.getParola() + " \n";
