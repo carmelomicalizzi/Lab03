@@ -75,8 +75,8 @@ public class SpellCheckerController {
     	List<RichWord> listaCorretta = dizionario.spellCheckText(inputTextList);
     	String elenco = "";
     	for(RichWord r : listaCorretta)
-    		elenco += r.getParola() + " \n";
-    	this.txtResult.setText(elenco);
+    		elenco += r.getParola() + " \n" ;
+    	this.txtResult.setText(elenco) ;
     }
     
     @FXML

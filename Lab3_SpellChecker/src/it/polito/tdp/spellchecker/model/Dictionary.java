@@ -11,7 +11,7 @@ public class Dictionary {
 		
 	}
 	
-	List<String> dizionario = new ArrayList<String>();
+	List<String> dizionario = new ArrayList<String>() ;
 
 	
 	

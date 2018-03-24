@@ -4,7 +4,7 @@ public class RichWord {
 
 	@Override
 	public String toString() {
-		return parola;
+		return parola ;
 	}
 
 	private String parola;
