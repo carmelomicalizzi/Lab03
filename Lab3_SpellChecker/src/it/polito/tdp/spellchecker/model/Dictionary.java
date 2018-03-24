@@ -36,22 +36,6 @@ public class Dictionary {
 	}
 
 
-
-	/*public List<RichWord> spellCheckText(List<String> inputTextList) {
-		
-		List<RichWord> parole = new LinkedList<RichWord>();
-		
-		boolean flag;
-		for(String p : inputTextList) {
-			flag = false;
-			for(String d : dizionario)
-				if(p.compareTo(d) == 0)
-					flag = true; 
-			if(flag == false) {
-				RichWord r = new RichWord(p, false);
-				parole.add(r);}
-		
-		}*/
 	
 	public List<RichWord> spellCheckTextLinear(List<String> inputTextList) {
 		
