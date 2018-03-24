@@ -56,60 +56,59 @@ public class Dictionary {
 			}}
 	
 		long tf = System.nanoTime();
-		long res = (long) ((tf-ti)/1E6);
-		System.out.println(res+" ms");
+		long res = (long) ((tf-ti)/1E3);
+		System.out.println(res+" microsecondi");
 		
 			return parole; 
 	}
 					
 	
-	public List<RichWord> spellCheckTextDichotomic(List<String> inputTextList) {
+public List<RichWord> spellCheckTextDichotomic(List<String> inputTextList) {
 		
 		long ti = System.nanoTime();
-		
-		List<RichWord> parole = new LinkedList<RichWord>();
-		boolean flag = false;
-		int medio = (int) dizionario.size()/2;
-		int i;
-		
-		for(String p : inputTextList) {
-			flag = false;
 
-			if(dizionario.get(medio).compareTo(p) < 0) {
-				for(i=medio; i<dizionario.size(); i++)
-					if(dizionario.get(i).compareTo(p) == 0)
-						flag = true;
-						
-			}
-			
-			if(dizionario.get(medio).compareTo(p) > 0) {
-				for(i=medio; i>0; i--)
-					if(dizionario.get(i).compareTo(p) == 0)
-						flag = true;
-						
-			}
-			
-			if(dizionario.get(medio).compareTo(p) == 0) {
-				flag = true;
-			}
+		List<RichWord> parole = new LinkedList<RichWord>();
+		
+		RichWord r;
+		for (String s : inputTextList) {
 			
 			
-			
-			if(flag == false)
-			{RichWord r = new RichWord(p, false);
-				parole.add(r);}
-			
+				if (binarySearch(s.toLowerCase())) 
+					r = new RichWord(s, true);
+				else 
+					r = new RichWord(s, false);
+				parole.add(r);
+	
 		}
 		
 		long tf = System.nanoTime();
-		long res = (long) ((tf-ti)/1E6);
-		System.out.println(res+" ms");
+		long res = (long) ((tf-ti)/1E3);
+		System.out.println(res+" microsecondi");
 		
 		return parole;
 	}
 				
 			
+	private boolean binarySearch(String stemp) {
 		
+		int inizio = 0;
+	    int fine = dizionario.size();
+
+	     
+	     while (inizio!=fine){
+	         int medio = inizio + (fine - inizio)/2;
+	         if (stemp.compareToIgnoreCase(dizionario.get(medio))==0){
+	             return true;
+	         } else if (stemp.compareToIgnoreCase(dizionario.get(medio))>0){
+	               inizio=medio +1;
+	           } else {
+	               fine=medio;
+	           }
+	     }
+		
+	     
+		return false;
+	}
 		
 		
 	
