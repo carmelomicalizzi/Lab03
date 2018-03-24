@@ -42,6 +42,10 @@ public class SpellCheckerController {
 
     @FXML
     void doClearText(ActionEvent event) {
+    	
+    	txtResult.clear();
+    	txtInserted.clear();
+    	this.dizionario = new Dictionary();
 
     }
     
